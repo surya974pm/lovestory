@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { aiPhotos, realPhotos, type Photo } from './data/photos'
+import { aiPhotos, asset, realPhotos, type Photo } from './data/photos'
 import './App.css'
 
 type Heart = { id: number; x: number; y: number; dx: number; delay: number }
@@ -123,7 +123,12 @@ function App() {
       </nav>
 
       <header className="hero" id="home">
-        <div className="hero-bg" />
+        <div
+          className="hero-bg"
+          style={{
+            ['--hero-photo' as string]: `url(${asset('ai/moonlight.jpg')})`,
+          }}
+        />
         <motion.div
           className="hero-content"
           initial={{ opacity: 0, y: 24 }}
@@ -186,7 +191,7 @@ function App() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <img src="/memories/07.jpg" alt="Surya and Savitha" />
+            <img src={asset('memories/07.jpg')} alt="Surya and Savitha" />
           </motion.div>
         </div>
       </section>
@@ -310,7 +315,7 @@ function App() {
             whileHover={{ rotate: 0, y: -8 }}
             onClick={(event) => openPhoto(aiPhotos, 2, event)}
           >
-            <img src="/ai/little-world.jpg" alt="Mini Surya and Mini Savitha on a garden swing" />
+            <img src={asset('ai/little-world.jpg')} alt="Mini Surya and Mini Savitha on a garden swing" />
             <span>Mini Surya ❤️ Mini Savitha</span>
           </motion.button>
         </div>
