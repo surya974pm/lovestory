@@ -56,7 +56,10 @@ function App() {
     () => realPhotos.map((_, i) => (i % 2 === 0 ? -2.4 : 2.1) + ((i % 5) - 2) * 0.4),
     [],
   )
-  const aiRotations = useMemo(() => [ -3.2, 2.4, -1.6, 3.1 ], [])
+  const aiRotations = useMemo(
+    () => aiPhotos.map((_, index) => (index % 2 === 0 ? -3.2 : 2.4)),
+    [],
+  )
 
   useEffect(() => {
     if (paused || preview) return
@@ -191,7 +194,7 @@ function App() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <img src={asset('memories/07.jpg')} alt="Surya and Savitha" />
+            <img src={asset('memories/IMG_4392.jpg')} alt="Surya and Savitha" />
           </motion.div>
         </div>
       </section>
@@ -220,7 +223,7 @@ function App() {
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
           <h2 className="section-title">Our Little AI World</h2>
           <p className="section-sub">
-            Four frames from a universe that never happened — and somehow still
+            A handful of frames from a universe that never happened — and somehow still
             feels like home.
           </p>
         </motion.div>
