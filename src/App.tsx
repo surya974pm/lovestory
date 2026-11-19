@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { aiPhotos, asset, realPhotos, type Photo } from './data/photos'
+import { TrollZone } from './components/TrollZone'
 import './App.css'
 
 type Heart = { id: number; x: number; y: number; dx: number; delay: number }
@@ -121,6 +122,7 @@ function App() {
           <a href="#memories">Real Memories</a>
           <a href="#ai-world">AI World</a>
           <a href="#mini">Mini us</a>
+          <a href="#troll-zone">Troll Zone</a>
           <a href="#letter">Letter</a>
         </div>
       </nav>
@@ -323,6 +325,8 @@ function App() {
           </motion.button>
         </div>
       </section>
+
+      <TrollZone />
 
       <section className="section" id="letter">
         <motion.div
